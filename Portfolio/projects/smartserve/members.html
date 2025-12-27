@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Members | SmartServe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+<div class="flex min-h-screen">
+
+  <!-- SIDEBAR -->
+  <aside class="w-64 bg-white shadow hidden md:block">
+    <div class="p-6 text-indigo-600 font-semibold text-xl">SmartServe</div>
+    <nav class="px-4 space-y-2">
+      <a href="dashboard.html" class="block px-4 py-2 rounded hover:bg-gray-100">Dashboard</a>
+      <a href="members.html" class="block bg-indigo-100 text-indigo-600 px-4 py-2 rounded">Members</a>
+      <a href="events.html" class="block px-4 py-2 rounded hover:bg-gray-100">Events</a>
+      <a href="finance.html" class="block px-4 py-2 rounded hover:bg-gray-100">Finance</a>
+      <a href="settings.html" class="block px-4 py-2 rounded hover:bg-gray-100">Settings</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="flex-1 p-6">
+
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-2xl font-semibold">Members</h2>
+      <button onclick="openForm()" class="bg-indigo-600 text-white px-4 py-2 rounded">
+        + Add Member
+      </button>
+    </div>
+
+    <!-- TABLE -->
+    <table class="w-full bg-white rounded shadow text-sm">
+      <thead class="bg-gray-50 border-b">
+        <tr>
+          <th class="p-3 text-left">Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th class="text-right p-3">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="memberTable"></tbody>
+    </table>
+
+    <!-- MODAL -->
+    <div id="modal" class="hidden fixed inset-0 bg-black/40 flex items-center justify-center">
+      <div class="bg-white p-6 rounded-lg w-96">
+        <h3 class="font-semibold mb-4">Member</h3>
+        <input id="name" placeholder="Name" class="border p-2 w-full mb-3">
+        <input id="email" placeholder="Email" class="border p-2 w-full mb-3">
+        <input id="role" placeholder="Role" class="border p-2 w-full mb-4">
+
+        <div class="flex justify-end gap-2">
+          <button onclick="closeForm()" class="px-4 py-2 border rounded">Cancel</button>
+          <button onclick="saveMember()" class="px-4 py-2 bg-indigo-600 text-white rounded">
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="assets/js/members.js"></script>
+</body>
+</html>
+

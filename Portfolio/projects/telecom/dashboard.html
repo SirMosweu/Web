@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Telecom Performance Insights Dashboard</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Inter&display=swap" rel="stylesheet">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1,h2,h3 { font-family: 'Poppins', sans-serif; }
+  </style>
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors">
+
+<!-- NAVBAR -->
+<nav class="bg-white dark:bg-gray-800 shadow px-6 py-4 flex justify-between items-center">
+  <h1 class="text-xl font-semibold text-blue-600">Telecom Insights</h1>
+
+  <div class="flex items-center space-x-6">
+    <a href="dashboard.html" class="text-blue-600">Dashboard</a>
+    <a href="insights.html">Insights</a>
+
+    <!-- Dark Mode Button -->
+    <button id="themeToggle" class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded">
+      🌙
+    </button>
+  </div>
+</nav>
+
+<main class="p-6 max-w-7xl mx-auto">
+
+<h2 class="text-2xl font-semibold mb-6">Performance Overview</h2>
+
+<!-- KPI CARDS -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+  <div class="bg-white dark:bg-gray-800 p-5 rounded-xl shadow hover:scale-105 transition">
+    <p class="text-gray-500">Total Revenue</p>
+    <h3 class="text-2xl font-semibold text-blue-600">$12.4M</h3>
+  </div>
+
+  <div class="bg-white dark:bg-gray-800 p-5 rounded-xl shadow hover:scale-105 transition">
+    <p class="text-gray-500">Subscribers</p>
+    <h3 class="text-2xl font-semibold text-blue-600">1.28M</h3>
+  </div>
+
+  <div class="bg-white dark:bg-gray-800 p-5 rounded-xl shadow hover:scale-105 transition">
+    <p class="text-gray-500">ARPU</p>
+    <h3 class="text-2xl font-semibold text-blue-600">$9.68</h3>
+  </div>
+
+  <div class="bg-white dark:bg-gray-800 p-5 rounded-xl shadow hover:scale-105 transition">
+    <p class="text-gray-500">Churn Rate</p>
+    <h3 class="text-2xl font-semibold text-red-500">2.3%</h3>
+  </div>
+</section>
+
+<!-- CHARTS -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+  <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
+    <h3 class="mb-4 font-semibold">Revenue Trend</h3>
+    <canvas id="revenueChart"></canvas>
+  </div>
+
+  <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
+    <h3 class="mb-4 font-semibold">Service Usage</h3>
+    <canvas id="usageChart"></canvas>
+  </div>
+</section>
+
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+  <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
+    <h3 class="mb-4 font-semibold">Subscribers by Region</h3>
+    <canvas id="regionChart"></canvas>
+  </div>
+
+  <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
+    <h3 class="mb-4 font-semibold">Churn Trend</h3>
+    <canvas id="churnChart"></canvas>
+  </div>
+</section>
+
+</main>
+
+<script src="assets/js/dashboard.js"></script>
+</body>
+</html>
